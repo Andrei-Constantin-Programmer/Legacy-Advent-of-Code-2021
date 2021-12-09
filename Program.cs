@@ -6,7 +6,7 @@ namespace Advent_of_Code_2021
     interface AoCDay {
         void solve();
     }
-
+    
     class Program
     {
         static void Main(string[] args)
@@ -36,7 +36,11 @@ namespace Advent_of_Code_2021
             Dictionary<int, AoCDay> dayMappings = new Dictionary<int, AoCDay>()
             {
                 {1, new Day1() },
-                
+                {2, new Day2() },
+                {3, new Day3() },
+                {4, new Day4() },
+                {5, new Day5() },
+
             };
 
             return dayMappings;

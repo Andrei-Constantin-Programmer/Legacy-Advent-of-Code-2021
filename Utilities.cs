@@ -17,5 +17,6 @@ namespace Advent_of_Code_2021
             return Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\inputFiles\day" + day + ".txt";
         }
 
+        
     }
 }
