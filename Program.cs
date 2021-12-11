@@ -43,6 +43,7 @@ namespace Advent_of_Code_2021
                 {6, new Day6() },
                 {7, new Day7() },
                 {8, new Day8() },
+                {9, new Day9() },
 
             };
 
