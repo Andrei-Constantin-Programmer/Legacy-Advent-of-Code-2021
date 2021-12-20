@@ -20,7 +20,7 @@ namespace Advent_of_Code_2021
 
             Console.WriteLine();
 
-            Console.WriteLine("Part 2: ");
+            Console.WriteLine("INCOMPLETE Part 2: ");
             solvePartTwo();
         }
 
