@@ -69,14 +69,6 @@ namespace Advent_of_Code_2021
                 while ((line = read.ReadLine()) != null)
                     solveFold(line);
 
-                int dots = 0;
-                for (int i = 0; i < n; i++)
-                    for (int j = 0; j < m; j++)
-                        if (matrix[i, j] == '#')
-                            dots++;
-
-                Console.WriteLine(dots);
-
                 using (StreamWriter write = Utilities.getOutputFile(13))
                 {
                     for (int i = 0; i < n; i++)
@@ -89,6 +81,8 @@ namespace Advent_of_Code_2021
 
                         write.WriteLine(l);
                     }
+
+                    Console.WriteLine("Look in file /outputFiles/day13out.txt");
                 }
             }
         }
