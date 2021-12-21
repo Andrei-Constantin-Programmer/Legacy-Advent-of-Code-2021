@@ -46,6 +46,7 @@ namespace Advent_of_Code_2021
                 {9, new Day9() },
                 {10, new Day10() },
                 {11, new Day11() },
+                {12, new Day12() },
 
             };
 
