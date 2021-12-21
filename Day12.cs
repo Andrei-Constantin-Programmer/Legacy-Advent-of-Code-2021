@@ -72,26 +72,26 @@ namespace Advent_of_Code_2021
         }
 
 
-        private List<Path> fullPaths = new List<Path>();
+        private List<CavePath> fullPaths = new List<CavePath>();
         private void findCavesSpecialRule(string cave, List<string> prevCaves, string visitedTwice)
         {
             if (cave.Equals("end"))
             {
                 prevCaves.Add("end");
-                fullPaths.Add(new Path(prevCaves));
+                fullPaths.Add(new CavePath(prevCaves));
                 return;
             }
 
             List<string> connections = caveConnections[cave];
-                for (int i = 0; i < connections.Count; i++)
+            for (int i = 0; i < connections.Count; i++)
+            {
+                if (connections[i] != "start" && (isSmall(connections[i]) && (!prevCaves.Contains(connections[i]) || (prevCaves.FindAll(x => x.Equals(connections[i])).Count == 1) && visitedTwice == connections[i])) || isBig(connections[i]))
                 {
-                    if (connections[i] != "start" && (isSmall(connections[i]) && (!prevCaves.Contains(connections[i]) || (prevCaves.FindAll(x => x.Equals(connections[i])).Count == 1) && visitedTwice == connections[i])) || isBig(connections[i]))
-                    {
-                        var newPrevCaves = new List<string>(prevCaves);
-                        newPrevCaves.Add(cave);
-                        findCavesSpecialRule(connections[i], newPrevCaves, visitedTwice);
-                    }
+                    var newPrevCaves = new List<string>(prevCaves);
+                    newPrevCaves.Add(cave);
+                    findCavesSpecialRule(connections[i], newPrevCaves, visitedTwice);
                 }
+            }
         }
 
         private void getCaves()
@@ -137,11 +137,11 @@ namespace Advent_of_Code_2021
         }
     }
 
-    class Path : IComparable, IComparable<Path>
+    class CavePath : IComparable, IComparable<CavePath>
     {
         public List<string> path { get; }
 
-        public Path(List<string> path)
+        public CavePath(List<string> path)
         {
             this.path = path;
         }
@@ -149,14 +149,14 @@ namespace Advent_of_Code_2021
         public int CompareTo(object obj)
         {
             if (obj == null) return 1;
-            Path other = obj as Path;
+            CavePath other = obj as CavePath;
             if (other == null)
                 throw new ArgumentException("A Path object is required for comparison.", "obj");
 
             return CompareTo(other);
         }
 
-        public int CompareTo([AllowNull] Path other)
+        public int CompareTo([AllowNull] CavePath other)
         {
             if (other == null)
                 return 1;
@@ -171,7 +171,6 @@ namespace Advent_of_Code_2021
                     return path[i].CompareTo(other.path[i]);
                 }
             }
-
            
             return 0;
         }
@@ -181,7 +180,7 @@ namespace Advent_of_Code_2021
             if (obj == null)
                 return false;
 
-            var other = obj as Path;
+            var other = obj as CavePath;
             if (other == null)
                 return false;
 

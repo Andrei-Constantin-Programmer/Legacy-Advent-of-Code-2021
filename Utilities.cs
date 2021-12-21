@@ -17,6 +17,10 @@ namespace Advent_of_Code_2021
             return Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\inputFiles\day" + day + ".txt";
         }
 
-        
+        public static StreamWriter getOutputFile(int day)
+        {
+            string directory = Environment.CurrentDirectory+@"\..\..\..";
+            return new StreamWriter(Path.Combine(directory, @"outputFiles\", "day"+day+"out.txt"));
+        }
     }
 }
