@@ -1,4 +1,7 @@
-# Advent-of-Code-2021
+# [Legacy] Advent-of-Code-2021
+
+The solutions in this project have been moved to a new project that contains solutions for all Advent of Code years. You can find it [here](https://github.com/Andrei-Constantin-Programmer/Advent-of-Code).
+
 
 ## General information
 My solution for Advent of Code 2021, written in C# as a Console Application. No other technologies are used.
